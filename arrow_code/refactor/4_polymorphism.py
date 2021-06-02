@@ -27,7 +27,7 @@ class SpanishUser(User):
 
 class ItalianUser(User):
     def say_hello(self, name):
-        print(f"Hola {name}")
+        print(f"Ciao {name}")
 
 class FactoryUser:
     def __init__(self):
@@ -50,8 +50,9 @@ def international_hello(self, user: User, language: str):
     # Call decompose method
     user.validate_user()
 
+    factory = FactoryUser()
+    
     for colleague in colleagues:
         # Polymorphism
-        factory = FactoryUser()
         user_to_send_message = factory.get_user_type(language)
         user_to_send_message.say_hello(colleague)
